@@ -1,8 +1,6 @@
 package br.com.alura.orgs.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -13,26 +11,36 @@ import br.com.alura.orgs.model.ProdutosDao
 import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario_produto) {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        val botao_salvar = findViewById<Button>(R.id.BtnSalvar)
-        botao_salvar.setOnClickListener {
-            val campoNome = findViewById<EditText>(R.id.nome).text.toString()
-            Log.i("FormularioProduto", "OnCreate: $campoNome")
-            val campoDesc = findViewById<EditText>(R.id.descricao).text.toString()
-            Log.i("FormularioProduto", "OnCreate: $campoDesc")
-            val valor = findViewById<EditText>(R.id.valor).text.toString()
-            val campoValor = if (valor.isBlank()) {
+    val TAG = "ProdutoActivity"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val botaoSalvar = findViewById<Button>(R.id.BtnSalvar)
+        botaoSalvar.setOnClickListener {
+            val campoNome = findViewById<EditText>(R.id.nome)
+            val nome = campoNome.text.toString()
+            val campoDescricao = findViewById<EditText>(R.id.descricao)
+            val descricao = campoDescricao.text.toString()
+            val campoValor = findViewById<EditText>(R.id.valor)
+            val valorEmTexto = campoValor.text.toString()
+            val valor = if(valorEmTexto.isBlank()) {
                 BigDecimal.ZERO
             } else {
-                BigDecimal(findViewById<EditText>(R.id.valor).text.toString())
+                BigDecimal(valorEmTexto)
             }
-            Log.i("FormularioProduto", "OnCreate: $campoValor")
-            val produto = Produto(nome = campoNome, descricao = campoDesc, valor = campoValor)
+
+
+            val produtoNovo = Produto(
+                nome = nome,
+                descricao = descricao,
+                valor = valor
+            )
+
+            Log.i("FormularioProduto", "onCreate: $produtoNovo")
             val dao = ProdutosDao()
-            dao.adicionar(produto)
-            dao.buscarTodos()
-            startActivity(Intent(this, MainActivity::class.java))
+            dao.adicionar(produtoNovo)
+            Log.i("FormularioProduto", "onCreate: ${dao.buscarTodos()}")
+            finish()
         }
     }
 }

@@ -3,14 +3,12 @@ package br.com.alura.orgs.ui.recyclerview.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ProdutoItemBinding
 import br.com.alura.orgs.model.Produto
 
 class ListaProdutosAdapter(
-   private val context: Context,
+    private val context: Context,
     dataSet: List<Produto>
 ) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
@@ -46,7 +44,7 @@ class ListaProdutosAdapter(
     }
 
     override fun getItemCount(): Int = produtos.size
-    
+
     fun atualiza(produtos: List<Produto>) {
         this.produtos.clear()
         this.produtos.addAll(produtos)

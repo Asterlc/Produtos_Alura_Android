@@ -1,4 +1,6 @@
-package br.com.alura.orgs.model
+package br.com.alura.orgs.dao
+
+import br.com.alura.orgs.model.Produto
 
 class ProdutosDao {
 

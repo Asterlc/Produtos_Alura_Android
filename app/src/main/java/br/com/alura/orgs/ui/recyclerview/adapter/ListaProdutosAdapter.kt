@@ -32,10 +32,6 @@ class ListaProdutosAdapter(
             parent,
             false
         )
-
-//        return ViewHolder(
-//            LayoutInflater.from(context).inflate(R.layout.produto_item, parent, false)
-//        )
         return ViewHolder(binding)
     }
 

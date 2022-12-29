@@ -24,7 +24,6 @@ class ListaProdutoActivity : AppCompatActivity(R.layout.activity_lista_produtos)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         configuraRecyclerView()
         configuraFAB()
         setContentView(binding.root)

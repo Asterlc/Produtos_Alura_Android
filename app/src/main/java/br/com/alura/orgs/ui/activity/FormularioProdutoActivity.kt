@@ -45,13 +45,10 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
     }
 
     private fun configuraCampos(): Triple<String, String, BigDecimal> {
-//        val campoNome = findViewById<EditText>(R.id.nome)
         val campoNome = binding.nome
         val nome = campoNome.text.toString()
-//        val campoDescricao = findViewById<EditText>(R.id.descricao)
         val campoDescricao = binding.descricao
         val descricao = campoDescricao.text.toString()
-//        val campoValor = findViewById<EditText>(R.id.valor)
         val campoValor = binding.valor
         val valorEmTexto = campoValor.text.toString()
         val valor = if (valorEmTexto.isBlank()) {

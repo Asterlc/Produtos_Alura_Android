@@ -35,7 +35,7 @@ class ListaProdutoActivity : AppCompatActivity(R.layout.activity_lista_produtos)
     }
 
     private fun configuraFAB() {
-        val fab = binding.floatingActionButton
+        val fab = binding.extendedFAB
         fab.setOnClickListener {
             startActivity(Intent(this, FormularioProdutoActivity::class.java))
         }

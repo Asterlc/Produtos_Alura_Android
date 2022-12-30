@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Orgs</string>
     <string name="cesta">Cesta de Frutas</string>
+    <string name="criar">Criar</string>
 </resources>

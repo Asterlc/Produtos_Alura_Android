@@ -16,7 +16,7 @@
             android:id="@+id/nome"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/TextViewDefaultMargin"
+            android:layout_margin="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat"
             android:maxLines="1"
@@ -56,12 +56,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/match_constraint"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/nome"
+            app:layout_constraintWidth_percent="0.3"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nome"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/produto_1"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />

@@ -45,12 +45,12 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
     }
 
     private fun configuraCampos(): Triple<String, String, BigDecimal> {
-        val campoNome = binding.nome
-        val nome = campoNome.text.toString()
-        val campoDescricao = binding.descricao
-        val descricao = campoDescricao.text.toString()
-        val campoValor = binding.valor
-        val valorEmTexto = campoValor.text.toString()
+        val campoNome = binding.textInputLayoutNome
+        val nome = campoNome.toString()
+        val campoDescricao = binding.textInputLayoutDescricao
+        val descricao = campoDescricao.toString()
+        val campoValor = binding.textInputLayoutValor
+        val valorEmTexto = campoValor.toString()
         val valor = if (valorEmTexto.isBlank()) {
             BigDecimal.ZERO
         } else {

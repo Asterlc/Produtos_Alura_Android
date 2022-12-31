@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/lista_produtos_recyclerView"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="@dimen/match_constraint"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -28,7 +28,7 @@
         android:text="@string/criar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        tools:icon="@drawable/ic_baseline_add_24"
+        app:icon="@drawable/ic_action_add_24"
+        tools:icon="@drawable/ic_action_add_24"
         tools:text="Criar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

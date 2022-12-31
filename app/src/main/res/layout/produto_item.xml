@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/nome"
+            android:id="@+id/produto_item_nome"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -23,12 +23,12 @@
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintStart_toEndOf="@id/produto_item_imageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
-            android:id="@+id/descricao"
+            android:id="@+id/produto_item_descricao"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -36,12 +36,12 @@
             android:maxLines="1"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/nome"
-            app:layout_constraintTop_toBottomOf="@id/nome"
+            app:layout_constraintStart_toStartOf="@+id/produto_item_nome"
+            app:layout_constraintTop_toBottomOf="@id/produto_item_nome"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
-            android:id="@+id/valor"
+            android:id="@+id/produto_item_valor"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -50,19 +50,19 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/nome"
-            app:layout_constraintTop_toBottomOf="@id/descricao"
+            app:layout_constraintStart_toStartOf="@+id/produto_item_nome"
+            app:layout_constraintTop_toBottomOf="@id/produto_item_descricao"
             tools:text="R$19.99" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/produto_item_imageView"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/match_constraint"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintWidth_percent="0.3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/nome"
+            app:layout_constraintEnd_toStartOf="@id/produto_item_nome"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/produto_1"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />

@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.AlertDialogLayout
 import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityListaProdutosBinding
@@ -55,7 +53,7 @@ class ListaProdutoActivity : AppCompatActivity(R.layout.activity_lista_produtos)
     }
 
     private fun configuraRecyclerView() {
-        val recyclerView = binding.recyclerView
+        val recyclerView = binding.listaProdutosRecyclerView
         recyclerView.adapter = adapter
         Log.i(TAG, "onResume: ${dao.buscarTodos()}")
     }

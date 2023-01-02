@@ -28,16 +28,6 @@ class ListaProdutoActivity : AppCompatActivity(R.layout.activity_lista_produtos)
         configuraRecyclerView()
         configuraFAB()
         setContentView(binding.root)
-        AlertDialog.Builder(this)
-            .setView(R.layout.formulario_imagem)
-            .setPositiveButton("Confirmar", DialogInterface.OnClickListener { _, _ ->
-
-            })
-            .setNegativeButton("Cancelar", DialogInterface.OnClickListener { _, _ ->
-
-            })
-            .show()
-
     }
 
     override fun onResume() {

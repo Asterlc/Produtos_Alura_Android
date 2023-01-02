@@ -1,5 +1,6 @@
 package br.com.alura.orgs.dao
 
+import br.com.alura.orgs.R
 import br.com.alura.orgs.model.Produto
 import java.math.BigDecimal
 
@@ -10,7 +11,8 @@ class ProdutosDao {
             Produto(
                 nome = "Teste",
                 descricao = "Teste",
-                valor = BigDecimal("19.90")
+                valor = BigDecimal("19.90"),
+                imagem = R.drawable.imagem_padrao.toString()
             )
         )
     }

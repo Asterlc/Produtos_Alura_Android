@@ -18,21 +18,21 @@ class ListaProdutosAdapter(
 
     private val produtos = dataSet.toMutableList()
 
-    class ViewHolder(binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val nomeDoProduto = binding.produtoItemNome
-        private val descricaoDoProduto = binding.produtoItemDescricao
-        private val valorDoProduto = binding.produtoItemValor
-        private val imagem = binding.produtoItemImageView
-
+    class ViewHolder(private val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun linkItem(produto: Produto) {
+            val nomeDoProduto = binding.produtoItemNome
+            val descricaoDoProduto = binding.produtoItemDescricao
+            val valorDoProduto = binding.produtoItemValor
+
             nomeDoProduto.text = produto.nome
             descricaoDoProduto.text = produto.descricao
             valorDoProduto.text = moedaBrasil(produto.valor)
-//            imagem.load()
+            binding.produtoItemImageView.load(produto.imagem)
         }
+
         private fun moedaBrasil(valor: BigDecimal): String {
             var formatador: NumberFormat = NumberFormat
-                .getCurrencyInstance(Locale("pt","br"))
+                .getCurrencyInstance(Locale("pt", "br"))
             return formatador.format(valor)
         }
     }

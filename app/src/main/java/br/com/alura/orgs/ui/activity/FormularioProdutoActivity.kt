@@ -2,6 +2,7 @@ package br.com.alura.orgs.ui.activity
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +10,8 @@ import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.databinding.FormularioImagemBinding
-import br.com.alura.orgs.databinding.ProdutoItemBinding
 import br.com.alura.orgs.model.Produto
 import coil.load
-import coil.request.Disposable
-import com.google.android.material.textfield.TextInputEditText
 import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario_produto) {
@@ -28,20 +26,19 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
         super.onCreate(savedInstanceState)
         configuraBtnSalvar()
         setContentView(binding.root)
-        binding.produtoImagem.setOnClickListener {
-            val formularioImagemBinding = FormularioImagemBinding.inflate(layoutInflater)
-            formularioImagemBinding.formularioImagemBtnCarregar.setOnClickListener {
-                url = formularioImagemBinding.formularioImagemUrl.text.toString()
-                binding.produtoImagem.load(url)
+        binding.activityFormularioProdutoImagem.setOnClickListener {
+            val imagemFormularioBinding = FormularioImagemBinding.inflate(layoutInflater)
+            imagemFormularioBinding.formularioImagemBtnCarregar.setOnClickListener {
+                url = imagemFormularioBinding.formularioImagemUrl.text.toString()
+                Log.i(TAG, "Imagem carregada: ${url}")
+                imagemFormularioBinding.formularioImagemImageView.load(url)
+//                binding.produtoImagem.load(url)
             }
             AlertDialog.Builder(this)
-                .setView(formularioImagemBinding.root)
+                .setView(imagemFormularioBinding.root)
                 .setPositiveButton("Confirmar", DialogInterface.OnClickListener { _, _ ->
-                    formularioImagemBinding.formularioImagemBtnCarregar.setOnClickListener {
-                        val caminho = formularioImagemBinding.formularioImagemUrl.text.toString()
-                        val imagem = binding.produtoImagem
-                       validaImagemURL(imagemCaminho = caminho, imagem = imagem)
-                    }
+                    url = imagemFormularioBinding.formularioImagemUrl.text.toString()
+                    binding.activityFormularioProdutoImagem.load(url)
                 })
                 .setNegativeButton("Cancelar", DialogInterface.OnClickListener { _, _ ->
 
@@ -63,7 +60,7 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
         val nome = binding.activityFormularioEditTextNome.text.toString()
         val descricao = binding.activityFormularioEditTextDescricao.text.toString()
         val valor = validaValor(binding.activityFormularioEditTextValor.text.toString())
-        val imagem = binding.produtoImagem.toString()
+        val imagem = url
 
         return Produto(nome = nome, descricao = descricao, valor = valor, imagem = imagem)
     }

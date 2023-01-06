@@ -18,9 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Nome"
-            app:layout_constraintEnd_toEndOf="@id/produto_imagem"
-            app:layout_constraintStart_toStartOf="@id/produto_imagem"
-            app:layout_constraintTop_toBottomOf="@id/produto_imagem"
+            app:layout_constraintEnd_toEndOf="@id/activity_formulario_produto_imagem"
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_produto_imagem"
+            app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_imagem"
             app:layout_constraintWidth_percent="0.9">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +68,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
-            android:id="@+id/produto_imagem"
+            android:id="@+id/activity_formulario_produto_imagem"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="200dp"
             android:scaleType="centerCrop"

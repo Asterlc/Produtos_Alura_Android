@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:windowSoftInputMode="adjustResize">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -28,9 +29,9 @@
 
 
         <ImageView
-            android:id="@+id/formulario_imagem"
+            android:id="@+id/formulario_imagem_imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +45,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:icon="@drawable/ic_action_file_upload_24"
-            app:layout_constraintTop_toBottomOf="@id/formulario_imagem"
-            app:layout_constraintBottom_toBottomOf="@id/formulario_imagem"
+            app:layout_constraintTop_toBottomOf="@id/formulario_imagem_imageView"
+            app:layout_constraintBottom_toBottomOf="@id/formulario_imagem_imageView"
             android:text="Carregar"
             tools:text="carregar"/>
 

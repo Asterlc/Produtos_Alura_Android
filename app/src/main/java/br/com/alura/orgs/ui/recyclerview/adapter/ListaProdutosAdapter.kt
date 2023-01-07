@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ProdutoItemBinding
+import br.com.alura.orgs.extensions.tryLoad
 import br.com.alura.orgs.model.Produto
 import coil.load
 import java.math.BigDecimal
@@ -28,7 +29,7 @@ class ListaProdutosAdapter(
             nomeDoProduto.text = produto.nome
             descricaoDoProduto.text = produto.descricao
             valorDoProduto.text = moedaBrasil(produto.valor)
-            binding.produtoItemImageView.load(produto.imagem)
+            binding.produtoItemImageView.tryLoad(produto.imagem)
         }
 
         private fun moedaBrasil(valor: BigDecimal): String {

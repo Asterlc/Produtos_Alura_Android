@@ -10,6 +10,8 @@ import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.databinding.FormularioImagemBinding
+import br.com.alura.orgs.dialog.FormularioImagemDialog
+import br.com.alura.orgs.extensions.tryLoad
 import br.com.alura.orgs.model.Produto
 import coil.load
 import java.math.BigDecimal
@@ -27,23 +29,10 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
         configuraBtnSalvar()
         setContentView(binding.root)
         binding.activityFormularioProdutoImagem.setOnClickListener {
-            val imagemFormularioBinding = FormularioImagemBinding.inflate(layoutInflater)
-            imagemFormularioBinding.formularioImagemBtnCarregar.setOnClickListener {
-                url = imagemFormularioBinding.formularioImagemUrl.text.toString()
-                Log.i(TAG, "Imagem carregada: ${url}")
-                imagemFormularioBinding.formularioImagemImageView.load(url)
-//                binding.produtoImagem.load(url)
+            FormularioImagemDialog(this).show { imagem ->
+                url = imagem
+                binding.activityFormularioProdutoImagem.tryLoad(url)
             }
-            AlertDialog.Builder(this)
-                .setView(imagemFormularioBinding.root)
-                .setPositiveButton("Confirmar", DialogInterface.OnClickListener { _, _ ->
-                    url = imagemFormularioBinding.formularioImagemUrl.text.toString()
-                    binding.activityFormularioProdutoImagem.load(url)
-                })
-                .setNegativeButton("Cancelar", DialogInterface.OnClickListener { _, _ ->
-
-                })
-                .show()
         }
     }
 
@@ -70,14 +59,6 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
             BigDecimal.ZERO
         } else {
             BigDecimal(binding.activityFormularioEditTextValor.text.toString())
-        }
-    }
-
-    private fun validaImagemURL(imagemCaminho: String, imagem: ImageView) {
-         if (imagemCaminho.isNullOrBlank()) {
-            imagem.load(R.drawable.imagem_padrao)
-        } else {
-            imagem.load(imagemCaminho)
         }
     }
 }
